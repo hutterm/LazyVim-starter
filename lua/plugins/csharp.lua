@@ -1,5 +1,3 @@
-local util = require("util")
-
 return {
 
   -- Add C# to treesitter
@@ -7,7 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        util.list_insert_unique(opts.ensure_installed, "c_sharp")
+        vim.list_extend(opts.ensure_installed, { "c_sharp", })
       end
     end,
   },
