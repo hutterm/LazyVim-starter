@@ -1,11 +1,12 @@
 return {
 
-  { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
+  { "Decodetalkers/csharpls-extended-lsp.nvim", lazy = true },
+  -- { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "c_sharp" })
+        vim.list_extend(opts.ensure_installed, { "c_sharp", "xml" })
       end
     end,
   },
@@ -44,26 +45,54 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        omnisharp = {
-          handlers = {
-            ["textDocument/definition"] = function(...)
-              return require("omnisharp_extended").handler(...)
-            end,
-          },
+        csharp_ls = {
+          root_dir = function(fname)
+            local util = require("lspconfig/util")
+
+            return util.root_pattern("*.sln")(fname)
+              or util.root_pattern("*.csproj")(fname)
+              or util.root_pattern("*.fsproj")(fname)
+              or util.root_pattern(".git")(fname)
+              or util.find_git_ancestor(fname)
+              or util.path.dirname(fname)
+          end,
+
           keys = {
-            {
-              "gd",
-              function()
-                require("omnisharp_extended").telescope_lsp_definitions()
-              end,
-              desc = "Goto Definition",
-            },
+            -- {
+            --   "gd",
+            --   function()
+            --     require("omnisharp_extended").telescope_lsp_definitions()
+            --   end,
+            --   desc = "Goto Definition",
+            -- },
             { "<leader>;", "mqA;<Esc>`q", desc = "; at end of line" },
           },
-          enable_roslyn_analyzers = true,
-          organize_imports_on_format = true,
-          enable_import_completion = true,
+          --   handlers = {
+          --     ["textDocument/definition"] = function(...)
+          --       return require("omnisharp_extended").handler(...)
+          --     end,
+          --   },
         },
+        -- omnisharp = {
+        --   handlers = {
+        --     ["textDocument/definition"] = function(...)
+        --       return require("omnisharp_extended").handler(...)
+        --     end,
+        --   },
+        --   keys = {
+        --     {
+        --       "gd",
+        --       function()
+        --         require("omnisharp_extended").telescope_lsp_definitions()
+        --       end,
+        --       desc = "Goto Definition",
+        --     },
+        --     { "<leader>;", "mqA;<Esc>`q", desc = "; at end of line" },
+        --   },
+        --   enable_roslyn_analyzers = true,
+        --   organize_imports_on_format = true,
+        --   enable_import_completion = true,
+        -- },
       },
     },
   },
@@ -102,13 +131,20 @@ return {
     end,
   },
   {
+    "Issafalcon/neotest-dotnet",
+  },
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "Issafalcon/neotest-dotnet",
     },
     opts = function(_, opts)
+      opts.log_level = "debug"
       opts.adapters = {
         ["neotest-dotnet"] = {
+          -- dotnet_additional_args = {
+          --   "--verbosity detailed",
+          -- },
           discovery_root = "solution",
         },
       }
