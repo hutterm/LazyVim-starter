@@ -41,14 +41,23 @@ return {
         end,
         dependencies = {
           { "nvim-lua/plenary.nvim" },
-          { "nvim-telescope/telescope.nvim", tag = "0.1.0" },
           { "Shatur/neovim-session-manager" },
         },
         priority = 100,
       },
     },
   },
-
+  {
+    "glepnir/dashboard-nvim",
+    optional = true,
+    opts = function(_, opts)
+      local button =
+        { key = "p", icon = " ", desc = " Recent Projects", action = "Telescope neovim-project history" }
+      table.insert(opts.config.center, 4, button)
+      local button2 = { key = "o", icon = " ", desc = " Projects", action = "Telescope neovim-project discover" }
+      table.insert(opts.config.center, 5, button2)
+    end,
+  },
   {
     "goolord/alpha-nvim",
     optional = true,
