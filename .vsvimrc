@@ -1,0 +1,41 @@
+" create a hardlink to this file in ~/ for VS to pick up
+set ignorecase
+set clipboard=unnamed
+
+nmap j gj
+nmap k gk
+map gd :vsc ReSharper.ReSharper_GotoDeclaration<CR>
+map <Space>r :vsc ReSharper.ReSharper_Rename<CR>
+map <Space>R :vsc ReSharper.ReSharper_RefactorThis<CR>
+map <Space>f :vsc ReSharper.ReSharper_GotoFileMember<CR>
+map <Space>e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
+map <Space>E :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+map <Space>s :vsc ReSharper.ReSharper_SurroundWith<CR>
+map <Space>l :vsc ReSharper.ReSharper_LiveTemplatesInsert<CR>
+map <Space>u :vsc ReSharper.ReSharper_GotoUsage<CR>
+map <Space>d :vsc ReSharper.ReSharper_DuplicateText<CR>
+map <Space>, :vsc ReSharper.ReSharper_GotoText<CR>
+map <Space>v :vsc ReSharper.Resharper_IntroVariable<CR>
+map <Space>i :vsc ReSharper.Resharper_InlineVariable<CR>
+map <Space>p :vsc ReSharper.Resharper_IntroduceParameter<CR>
+map <Space>m :vsc ReSharper.ReSharper_ExtractMethod<CR>
+map <Space>o :vsc ReSharper.ReSharper_Move<CR>
+map <Space>g :vsc ReSharper.ReSharper_Generate<CR>
+map <Space>t :vsc ReSharper.ReSharper_GotoType<CR>
+map <Space>tr :vsc ReSharper.ReSharper_UnitTestRunFromContext<CR>
+map <Space>td :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
+map <Space>ta :vsc ReSharper.ReSharper_UnitTestRunSolution<CR>
+map <Space>tl :vsc ReSharper.ReSharper_UnitTestSessionRepeatPreviousRun<CR>
+map <Space>tt :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
+map <Space>a :vsc EditorContextMenus.CodeWindow.Movetoresource<CR>
+map <Space>/ :vsc ReSharper.ReSharper_LineComment<CR>
+map <Space>qk :vsc Tools.CustomizeKeyboard<CR>
+map <Space>b :vsc Build.BuildSelection<CR>
+map <Space>B :vsc Build.Cancel<CR>
+" nmap <Space><Space> mq`q:vsc Tools.InvokeAceJumpCommand<CR>
+nnoremap <Space><Space> mq`q:vsc Tools.InvokePeasyMotion<CR>
+nnoremap s mq`q:vsc Tools.InvokePeasyMotion<CR>
+nmap <Space>; mqA;<Esc>`q
+map ]] :vsc ReSharper.ReSharper_GotoNextMethod<CR>
+map [[ :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
+map zl :so ~/.vsvimrc<CR>
