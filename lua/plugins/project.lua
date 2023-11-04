@@ -28,7 +28,8 @@ return {
         opts = {
           projects = { -- define project roots
             "~/source/Repos/*",
-            "~/AppData/Local/nvim/",
+            "~/AppData/Local/nvim",
+            "~/Documents/Visual Studio 2012/Projects/*",
             -- "~/.config/*",
           },
         },
@@ -48,7 +49,7 @@ return {
     },
   },
   {
-    "glepnir/dashboard-nvim",
+    "nvimdev/dashboard-nvim",
     optional = true,
     opts = function(_, opts)
       local button =
