@@ -30,6 +30,7 @@ return {
             "~/source/Repos/*",
             "~/AppData/Local/nvim",
             "~/Documents/Visual Studio 2012/Projects/*",
+            "D:/ObsidianVault",
             -- "~/.config/*",
           },
         },
@@ -54,8 +55,10 @@ return {
     opts = function(_, opts)
       local button =
         { key = "p", icon = " ", desc = " Recent Projects", action = "Telescope neovim-project history" }
+      button.key_format = "  %s"
       table.insert(opts.config.center, 4, button)
       local button2 = { key = "o", icon = " ", desc = " Projects", action = "Telescope neovim-project discover" }
+      button2.key_format = "  %s"
       table.insert(opts.config.center, 5, button2)
     end,
   },
