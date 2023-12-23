@@ -13,3 +13,8 @@ vim.api.nvim_create_autocmd("FileType", {
   --   vim.opt_local.tabstop = 4
   -- end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = vim.fn.expand("~") .. "/ObsidianVault/**.md",
+  callback = function() end,
+})

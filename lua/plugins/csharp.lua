@@ -18,21 +18,21 @@ return {
       table.insert(opts.sources, nls.builtins.formatting.csharpier)
     end,
   },
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        cs = { "csharpier" },
-      },
-      formatters = {
-        csharpier = {
-          command = "dotnet-csharpier",
-          args = { "--write-stdout" },
-        },
-      },
-    },
-  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   optional = true,
+  --   opts = {
+  --     formatters_by_ft = {
+  --       cs = { "csharpier" },
+  --     },
+  --     formatters = {
+  --       csharpier = {
+  --         command = "dotnet-csharpier",
+  --         args = { "--write-stdout" },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)

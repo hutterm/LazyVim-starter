@@ -22,6 +22,8 @@ return {
   {
     "telescope.nvim",
     dependencies = {
+      -- test https://github.com/GnikDroy/projections.nvim instead
+      --
       {
         "coffebar/neovim-project",
         event = "VeryLazy",
@@ -30,7 +32,7 @@ return {
             "~/source/Repos/*",
             "~/AppData/Local/nvim",
             "~/Documents/Visual Studio 2012/Projects/*",
-            "D:/ObsidianVault",
+            "~/ObsidianVault",
             -- "~/.config/*",
           },
         },

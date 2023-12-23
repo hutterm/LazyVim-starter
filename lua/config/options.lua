@@ -10,3 +10,12 @@ vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
 vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 vim.opt.shellquote = ""
 vim.opt.shellxquote = ""
+
+vim.opt.spelllang = "en_us,de_de"
+-- vim.g.python3_host_prog = ""
+--
+--
+--
+if vim.g.neovide then
+  vim.o.guifont = "JetBrains_Mono,Iosevka_Nerd_Font:h12"
+end
