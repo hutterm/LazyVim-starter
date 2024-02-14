@@ -30,6 +30,7 @@ return {
         opts = {
           projects = { -- define project roots
             "~/source/Repos/*",
+            "V:/Repos/*",
             "~/AppData/Local/nvim",
             "~/Documents/Visual Studio 2012/Projects/*",
             "~/ObsidianVault",

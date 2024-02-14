@@ -17,6 +17,9 @@ return {
       float = {
         padding = 3,
       },
+      keymaps = {
+        ["q"] = "actions.close",
+      },
     },
   },
 }

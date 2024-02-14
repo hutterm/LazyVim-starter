@@ -12,7 +12,7 @@ map ]e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
 map [e :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
 map gr :vsc ReSharper.ReSharper_GotoUsage<CR>
 nmap gcc :vsc ReSharper.ReSharper_LineComment<CR>
-vmap gc :vsc ReSharper.ReSharper_LineComment<CR>
+vmap gc :vsc ReSharper.ReSharper_BlockComment<CR>
 
 
 
@@ -25,8 +25,20 @@ map <Space>tt :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
 
 map <Space>a :vsc EditorContextMenus.CodeWindow.Movetoresource<CR>
 
-nnoremap <Space><Space> :vsc ReSharper.ReSharper_GotoFile<CR>
-nnoremap <Space>ff :vsc ReSharper.ReSharper_GotoFile<CR>
+nmap <Space><Space> :vsc ReSharper.ReSharper_GotoFile<CR>
+nmap <Space>ff :vsc ReSharper.ReSharper_GotoFile<CR>
+nmap <Space>/ :vsc ReSharper.ReSharper_GotoType<CR>
+
+nmap <Space>gg :!start pwsh -Command lazygit<CR>
+
+" default VS maps"
+map <C-s> :vsc File.SaveSelectedItems<CR>
+map <C-S-s> :vsc File.SaveAll<CR>
+
+imap <C-s> <Esc>:vsc File.SaveSelectedItems<CR>a
+imap <C-S-s> <Esc>:vsc File.SaveAll<CR>a
+
+
 nnoremap s mq`q:vsc Tools.InvokePeasyMotion<CR>
 nmap <Space>; mqA;<Esc>`q
 
@@ -35,7 +47,11 @@ map [[ :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
 
 map zl :so ~/.vsvimrc<CR>
 
-
+nmap L :vsc Window.NextTab<CR>
+nmap H :vsc Window.PreviousTab<CR>
+nmap <C-L> :vsc Tools.NavigateTabGroups.Right<CR>
+nmap <C-H> :vsc Tools.NavigateTabGroups.Left<CR>
+nmap <Space>bd :vsc Window.CloseDocumentWindow<CR>
 
 " unsure
 map <Space>s :vsc ReSharper.ReSharper_SurroundWith<CR>
